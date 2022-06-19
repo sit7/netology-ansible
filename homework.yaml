@@ -1,0 +1,36 @@
+- name: Home Works
+  hosts: all
+  become: yes
+ 
+  tasks:
+  - name: Task ping
+    ping:
+ 
+  - name: Task yum update
+    yum:
+      update_cache: yes
+ 
+  - name: Install net-tools, git, tree, htop, mc, vim
+    yum:
+      name:
+        - net-tools
+        - git
+        - tree
+        - htop      
+        - mc
+        - vim  
+      state: latest
+  - name: Copy File
+    copy:
+      src: test.txt
+      dest: /home/ansible/files
+      mode: 0777
+  - name: Create User
+    user: 
+      name: "{{item.user_name}}"
+      shell: /bin/bash/
+      append: yes
+      home: "/home/{{item.home_dir}}"
+    with_items:
+      - {user_name: devops_1, home_dir: home_devops_1}
+      - {user_name: test_1, home_dir: test_1}

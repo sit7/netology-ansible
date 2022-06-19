@@ -1,0 +1,42 @@
+2022-06-19 21:27:48,722 p=10944 u=root n=ansible | ansible-playbook 2.9.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.10 (default, Mar 15 2022, 12:22:08) [GCC 9.4.0]
+2022-06-19 21:27:48,723 p=10944 u=root n=ansible | Using /etc/ansible/ansible.cfg as config file
+2022-06-19 21:27:49,104 p=10944 u=root n=ansible | PLAYBOOK: homework.yaml ***********************************************************************************************************************************************************************************
+2022-06-19 21:27:49,104 p=10944 u=root n=ansible | 1 plays in homework.yaml
+2022-06-19 21:27:49,107 p=10944 u=root n=ansible | PLAY [Home Works] *****************************************************************************************************************************************************************************************
+2022-06-19 21:27:49,128 p=10944 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************************
+2022-06-19 21:27:49,128 p=10944 u=root n=ansible | task path: /home/alex/ansible/group_vars/homework.yaml:1
+2022-06-19 21:27:51,014 p=10944 u=root n=ansible | ok: [node1]
+2022-06-19 21:27:51,081 p=10944 u=root n=ansible | ok: [node2]
+2022-06-19 21:27:51,082 p=10944 u=root n=ansible | META: ran handlers
+2022-06-19 21:27:51,098 p=10944 u=root n=ansible | TASK [Task ping] ******************************************************************************************************************************************************************************************
+2022-06-19 21:27:51,099 p=10944 u=root n=ansible | task path: /home/alex/ansible/group_vars/homework.yaml:6
+2022-06-19 21:27:51,697 p=10944 u=root n=ansible | ok: [node1] => {"changed": false, "ping": "pong"}
+2022-06-19 21:27:51,700 p=10944 u=root n=ansible | ok: [node2] => {"changed": false, "ping": "pong"}
+2022-06-19 21:27:51,715 p=10944 u=root n=ansible | TASK [Task yum update] ************************************************************************************************************************************************************************************
+2022-06-19 21:27:51,715 p=10944 u=root n=ansible | task path: /home/alex/ansible/group_vars/homework.yaml:9
+2022-06-19 21:27:55,682 p=10944 u=root n=ansible | changed: [node2] => {"ansible_facts": {"pkg_mgr": "apt"}, "cache_update_time": 1655663274, "cache_updated": true, "changed": true}
+2022-06-19 21:27:56,140 p=10944 u=root n=ansible | changed: [node1] => {"ansible_facts": {"pkg_mgr": "apt"}, "cache_update_time": 1655663275, "cache_updated": true, "changed": true}
+2022-06-19 21:27:56,159 p=10944 u=root n=ansible | TASK [Install net-tools, git, tree, htop, mc, vim] ********************************************************************************************************************************************************
+2022-06-19 21:27:56,160 p=10944 u=root n=ansible | task path: /home/alex/ansible/group_vars/homework.yaml:13
+2022-06-19 21:27:58,419 p=10944 u=root n=ansible | ok: [node2] => {"ansible_facts": {"pkg_mgr": "apt"}, "cache_update_time": 1655663274, "cache_updated": false, "changed": false}
+2022-06-19 21:27:58,536 p=10944 u=root n=ansible | ok: [node1] => {"ansible_facts": {"pkg_mgr": "apt"}, "cache_update_time": 1655663275, "cache_updated": false, "changed": false}
+2022-06-19 21:27:58,543 p=10944 u=root n=ansible | TASK [Copy File] ******************************************************************************************************************************************************************************************
+2022-06-19 21:27:58,544 p=10944 u=root n=ansible | task path: /home/alex/ansible/group_vars/homework.yaml:23
+2022-06-19 21:27:59,326 p=10944 u=root n=ansible | ok: [node1] => {"changed": false, "checksum": "ab315efa31cedb5ab4032da89ea759749b2bb421", "dest": "/home/ansible/files", "gid": 0, "group": "root", "mode": "0777", "owner": "root", "path": "/home/ansible/files", "size": 8, "state": "file", "uid": 0}
+2022-06-19 21:27:59,347 p=10944 u=root n=ansible | ok: [node2] => {"changed": false, "checksum": "ab315efa31cedb5ab4032da89ea759749b2bb421", "dest": "/home/ansible/files", "gid": 0, "group": "root", "mode": "0777", "owner": "root", "path": "/home/ansible/files", "size": 8, "state": "file", "uid": 0}
+2022-06-19 21:27:59,353 p=10944 u=root n=ansible | TASK [Create User] ****************************************************************************************************************************************************************************************
+2022-06-19 21:27:59,353 p=10944 u=root n=ansible | task path: /home/alex/ansible/group_vars/homework.yaml:28
+2022-06-19 21:27:59,904 p=10944 u=root n=ansible | ok: [node1] => (item={'user_name': 'devops_1', 'home_dir': 'home_devops_1'}) => {"ansible_loop_var": "item", "append": true, "changed": false, "comment": "", "group": 1007, "home": "/home/home_devops_1", "item": {"home_dir": "home_devops_1", "user_name": "devops_1"}, "move_home": false, "name": "devops_1", "shell": "/bin/bash/", "state": "present", "uid": 1004}
+2022-06-19 21:27:59,925 p=10944 u=root n=ansible | ok: [node2] => (item={'user_name': 'devops_1', 'home_dir': 'home_devops_1'}) => {"ansible_loop_var": "item", "append": true, "changed": false, "comment": "", "group": 1007, "home": "/home/home_devops_1", "item": {"home_dir": "home_devops_1", "user_name": "devops_1"}, "move_home": false, "name": "devops_1", "shell": "/bin/bash/", "state": "present", "uid": 1004}
+2022-06-19 21:28:00,290 p=10944 u=root n=ansible | ok: [node1] => (item={'user_name': 'test_1', 'home_dir': 'test_1'}) => {"ansible_loop_var": "item", "append": true, "changed": false, "comment": "", "group": 1008, "home": "/home/test_1", "item": {"home_dir": "test_1", "user_name": "test_1"}, "move_home": false, "name": "test_1", "shell": "/bin/bash/", "state": "present", "uid": 1005}
+2022-06-19 21:28:00,308 p=10944 u=root n=ansible | ok: [node2] => (item={'user_name': 'test_1', 'home_dir': 'test_1'}) => {"ansible_loop_var": "item", "append": true, "changed": false, "comment": "", "group": 1008, "home": "/home/test_1", "item": {"home_dir": "test_1", "user_name": "test_1"}, "move_home": false, "name": "test_1", "shell": "/bin/bash/", "state": "present", "uid": 1005}
+2022-06-19 21:28:00,309 p=10944 u=root n=ansible | META: ran handlers
+2022-06-19 21:28:00,310 p=10944 u=root n=ansible | META: ran handlers
+2022-06-19 21:28:00,312 p=10944 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************************
+2022-06-19 21:28:00,312 p=10944 u=root n=ansible | node1                      : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-06-19 21:28:00,312 p=10944 u=root n=ansible | node2                      : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
